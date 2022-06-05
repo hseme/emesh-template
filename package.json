@@ -7,7 +7,8 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{vue,js,ts,tsx}\" --fix",
-    "lint:css": "stylelint --fix \"**/*.{vue,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/"
+    "lint:css": "stylelint --fix \"**/*.{vue,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "prepare": "husky install"
   },
   "dependencies": {
     "vue": "^3.2.25"
@@ -22,6 +23,8 @@
     "eslint-plugin-n": "^15.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-vue": "^9.1.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
     "postcss": "^8.4.14",
     "postcss-html": "^1.4.1",
     "sass": "^1.52.2",
@@ -33,5 +36,15 @@
     "typescript": "^4.5.4",
     "vite": "^2.9.9",
     "vue-tsc": "^0.34.7"
+  },
+  "lint-staged": {
+    "*.{js,jsx,vue,ts,tsx}": [
+      "pnpm lint",
+      "git add ."
+    ],
+    "*.{html,vue,scss}": [
+      "pnpm lint:css",
+      "git add ."
+    ]
   }
 }
