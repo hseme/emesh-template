@@ -11,12 +11,12 @@ const routes: RouteRecordRaw[] = [
     },
     component: LayoutBase,
     redirect: {
-      path: '/dash/console'
+      path: '/dash/normal'
     },
     children: [
       {
-        path: '/dash/console',
-        name: 'dash-console',
+        path: '/dash/normal',
+        name: 'dash-normal',
         meta: {
           title: '面板'
         },

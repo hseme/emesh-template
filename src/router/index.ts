@@ -26,12 +26,12 @@ export const asyncRoutes = [...moduleRoutes()];
 
 export const constantRoutes = [
   baseRoute,
-  asyncRoutes
+  ...asyncRoutes
 ];
 
 export const router = createRouter({
   history: createWebHashHistory(),
-  routes: [],
+  routes: constantRoutes,
   strict: true,
   scrollBehavior: () => ({ left: 0, top: 0 })
 });
