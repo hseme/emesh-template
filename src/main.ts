@@ -1,3 +1,4 @@
+import './styles/tailwind.css';
 import { createApp } from 'vue';
 import App from './App';
 import { setupRouter } from './router';
