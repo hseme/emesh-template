@@ -1,6 +1,7 @@
 import { Page } from '@/enums/page';
 import { App } from 'vue';
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import { useGuards } from './guards';
 
 const moduleRoutes = () => {
   const modules = import.meta.globEager('./modules/**/*.ts');
@@ -38,4 +39,6 @@ export const router = createRouter({
 
 export const setupRouter = (app: App) => {
   app.use(router);
+
+  useGuards(router);
 };
